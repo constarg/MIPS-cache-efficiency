@@ -1,15 +1,15 @@
 .data
 
-size:    .word 16
-.space 4
- arrayA:  .word 2,-2, 4,-4, 6,-6, 8,-8,-9, 9,-7, 7,-5, 5,-3, 3
-.space 4
- arrayB:  .word 8, 7, 6, 5, 4, 3, 2, 1,-1,-2,-3,-4,-5,-6,-7,-8
-.space 4
-arrayAM: .word 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-.space 4
-arrayBM: .word 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-
+# input matrix A
+arrayA: .word 2,-2, 4,-4, 6,-6, 8,-8,-9, 9,-7, 7,-5, 5,-3, 3
+# input matrix Β
+arrayB: .word 8, 7, 6, 5, 4, 3, 2, 1,-1,-2,-3,-4,-5,-6,-7,-8
+# output matrix AM
+arrayAM: .word 0:16
+# output matrix BM
+arrayBM: .word 0:16
+# size of the array
+size: .word 16
 
     .text
 main:
