@@ -1,15 +1,18 @@
 .data
 
 # input matrix A
-arrayA: .word 2,-2, 4,-4, 6,-6, 8,-8,-9, 9,-7, 7,-5, 5,-3, 3
+arrayA:  .word 2,-2, 4,-4, 6,-6, 8,-8,-9, 9,-7, 7,-5, 5,-3, 3
+.space 8
 # input matrix Β
-arrayB: .word 8, 7, 6, 5, 4, 3, 2, 1,-1,-2,-3,-4,-5,-6,-7,-8
+arrayB:  .word 8, 7, 6, 5, 4, 3, 2, 1,-1,-2,-3,-4,-5,-6,-7,-8
+.space 8
 # output matrix AM
 arrayAM: .word 0:16
+.space 8
 # output matrix BM
 arrayBM: .word 0:16
 # size of the array
-size: .word 16
+size:    .word 16
 
     .text
 main:
@@ -17,7 +20,7 @@ main:
    la     $s0, arrayA            # Store the address of A[i] in $s0.
    la     $s1, arrayB            # Store the address of B[i] in $s1.
    lw     $t0, 0($t0)            # Load the size in $t0.
-   sll    $t0, $t0,2             # Translate the size into the addresses. ( raw stall )
+   sll    $t0, $t0,2             # Translate the size into the addresses.
    add    $s2, $t0,$s0           # Find the last address of A[].
    la     $s3, arrayAM           # Base address for AM[i].
    la     $s4, arrayBM           # Base address for BM[i].
