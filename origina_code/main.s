@@ -17,7 +17,7 @@ main:
    la     $s0, arrayA            # Store the address of A[i] in $s0.
    la     $s1, arrayB            # Store the address of B[i] in $s1.
    lw     $t0, 0($t0)            # Load the size in $t0.
-   sll    $t0, $t0,2             # Translate the size into the addresses. ( raw stall )
+   sll    $t0, $t0,2             # Translate the size into the addresses.
    add    $s2, $t0,$s0           # Find the last address of A[].
    la     $s3, arrayAM           # Base address for AM[i].
    la     $s4, arrayBM           # Base address for BM[i].
@@ -32,12 +32,12 @@ Loop_j:
    lw     $t5, 0($s3)            # Get the value of AM[i].
    lw     $t6, 0($s4)            # Get the value of BM[i].
    mul    $t7, $t1,$t4           # Multiple A[i] and B[j] and store it in $t7.
-   slt    $t8, $t5,$t7           # if AM[i] < (A[i] * B[j]). ( raw stall )
+   slt    $t8, $t5,$t7           # if AM[i] < (A[i] * B[j]).
    beq    $t8, $zero,false_am    # Check if the above statement is true or false.
    sw     $t7, 0($s3)            # if the statement is true, then store the value in the AM[i].
 false_am:                        # if the statemnt is false, then continue.
    mul    $t7, $t3,$t2            # Multiple A[j] and B[i] and store it in $t7.
-   slt    $t8, $t6,$t7           # if BM[i] < A[j]*B[i]. ( raw stall )
+   slt    $t8, $t6,$t7           # if BM[i] < A[j]*B[i]. 
    beq    $t8, $zero, false_amm  # Check if the above statement is true or false.
    sw     $t7, 0($s4)            # if the statement is true, then store the value in the BM[i].
 false_amm:                       # if the statemnt is false, then continue.
