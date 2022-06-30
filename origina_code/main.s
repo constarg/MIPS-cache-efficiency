@@ -10,7 +10,7 @@ arrayAM: .word 0:16
 arrayBM: .word 0:16
 # size of the array
 size: .word 16
-
+		
     .text
 main:
    la     $t0, size              # Store the address of size in R1.
